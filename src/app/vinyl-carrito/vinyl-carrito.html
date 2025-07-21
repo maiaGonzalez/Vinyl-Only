@@ -1,0 +1,15 @@
+<div class="card w-100 p-3">
+  <div class="mb-3">
+        <h5 class="card-title">Carrito</h5>
+        <ul class="list-unstyled">
+            <li class="mb-2" *ngFor=" let disco of cartList$ | async" >
+                {{disco.nombre}} 
+                <span class="badge rounded-pill text-bg-success">{{disco.cantidad}} </span>  
+                <button class="btn btn-outline-danger btn-sm ms-1" (click)="removeToCart(disco)">-</button>
+            </li> <!--agregar numerito de cantidad en algun color-->
+
+        </ul>
+    </div>
+</div>
+
+

@@ -1,0 +1,12 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="input-group-prepend">
+    <button type="button" class="btn btn-dark" (click)="downCantidad()">-</button>
+  </div>
+
+  <input type="number" [(ngModel)]="cantidad"  class="form-control text-center mb-1" 
+    style="max-width: 50px;" readonly>
+
+  <div class="input-group-append">
+    <button type="button" class="btn btn-dark"  (click)="upCantidad()">+</button>
+  </div>
+</div> 

@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <table class="table text-center table-borderless">
+        <thead  class="h6">
+            <tr>
+                  <th class="h5">Productos</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Nombre</th>
+                <th>Género</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Compra</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let disco of discos" [ngClass]="{'oferta': disco.oferta}" >
+                <td><img  width="200" class="img-thumbail"
+                    [src]="disco.image" [alt]="disco.nombre"/>
+                </td>
+                <td>{{disco.nombre}}</td>
+                <td>{{disco.genero}}</td>
+                <td> <p class="badge text-bg-success"  *ngIf="disco.oferta">Off!</p>{{disco.precio | currency }}</td>
+                <td><span class="badge text-bg-warning"  *ngIf="disco.stock==0">Sin stock</span>
+                    <span *ngIf="disco.stock > 0">{{ disco.stock }}</span>
+                </td>
+        
+                <td class="d-flex justify-content-center align-items-center">
+                <app-input-integer [(cantidad)]="disco.cantidad" [max]="disco.stock" (maxStock)="maxStock($event)" *ngIf="disco.stock"></app-input-integer>
+                </td>
+                <td>
+                    <button class="btn btn-outline-dark" (click)="addToCart(disco)">Comprar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
